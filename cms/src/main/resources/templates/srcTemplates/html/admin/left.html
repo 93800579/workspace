@@ -1,0 +1,14 @@
+<div class="col-sm-2">
+	<ul class="nav nav-pills nav-stacked">
+		<li th:class="${params1=='lanmu'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/cms/admin/lanmu}">栏目管理</a></li>
+		<li th:class="${params1=='wen'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/cms/admin/list}">文章管理</a></li>
+		<li class="disabled" th:class="${params1=='sys'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/cms/admin/system}">系统管理</a></li>
+
+		<li my:each="bean:${classes}"
+			my:code="'class=${params1=='+${#strings.toLowerCase(bean.simpleName)}+'}? 'active' : ''"><a
+			href="javascript:void(0)" my:code="'href=@{/cms/'+${#strings.toLowerCase(bean.simpleName)}+'/list}'">${bean}</a></li>
+	</ul>
+</div>

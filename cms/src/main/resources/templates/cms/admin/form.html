@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row" th:include="toolbar"></div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" th:action="@{/cms/admin/saveForm}"
+							method="post">
+							<fieldset>
+								<legend>表单</legend>
+								<div class="form-group">
+
+									<label for="inputEmail" class="col-md-2 control-label">title</label>
+
+									<div class="col-md-10">
+										<input type="hidden" name="id" th:value="${cmsContent.id}">
+										<input type="text" class="form-control" id="inputEmail"
+											name="title" placeholder="title"
+											th:value="${cmsContent.title}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputEmail" class="col-md-2 control-label">类型</label>
+
+									<div class="col-md-10">
+										<input type="text" class="form-control" id="inputEmail"
+											name="category" placeholder="category"
+											th:value="${cmsContent.categoryId}">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="textArea" class="col-md-2 control-label">Textarea</label>
+
+									<div class="col-md-10">
+										<textarea class="form-control" rows="10"
+											data-provide="markdown" name="content" id="textArea"
+											th:text="${cmsContentAttribute.text}">
+									
+									</textarea>
+										<span class="help-block">A longer block of help text
+											that breaks onto a new line and may extend beyond one line.</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-10 col-md-offset-2">
+										<button type="button" class="btn btn-default">Cancel</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

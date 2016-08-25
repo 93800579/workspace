@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row" th:include="toolbar"></div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal"
+							th:action="@{/cms/[[${#strings.toLowerCase(className)}]]/save}"
+							method="post">
+							<fieldset>
+								<legend>表单</legend>
+								<input type="hidden" name="id" th:value="${model.id}">
+
+								<div class="form-group" my:each="cname:${list}"
+									my:if="${cname.clumnName!='id'}" my:switch="${cname.clumnType}">
+
+									<label my:attr="for=${cname.clumnName}"
+										class="col-md-2 control-label" my:text="${cname.cnName}"></label>
+									<div class="col-md-10" my:case="'boolean'">
+										<div class="togglebutton">
+											<label> <input type="checkbox" class="form-control"
+												my:attr="id=${cname.clumnName},name=${cname.clumnName},placeholder=${cname.cnName}"
+												my:code="checked='${model.'+${cname.clumnName}+'}'"><span
+												class="toggle"></span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-10" my:case="date">
+										<input type="text" class="form-control dateInput"
+											my:attr="id=${cname.clumnName},name=${cname.clumnName},placeholder=${cname.cnName}"
+											my:code="value='${model.'+${cname.clumnName}+'}'"
+											my:attrappend="${null!=cname.valString?cname.valString:'data'}=${null!=cname.needVal?cname.needVal:''}">
+									</div>
+									<div class="col-md-10" my:case="num">
+										<input type="number" class="form-control"
+											my:attr="id=${cname.clumnName},name=${cname.clumnName},placeholder=${cname.cnName}"
+											my:code="value='${model.'+${cname.clumnName}+'}'"
+											my:attrappend="${null!=cname.valString?cname.valString:'data'}=${null!=cname.needVal?cname.needVal:''}">
+									</div>
+									<div class="col-md-10" my:case="*">
+										<input type="text" class="form-control"
+											my:attr="id=${cname.clumnName},name=${cname.clumnName},placeholder=${cname.cnName}"
+											my:code="value='${model.'+${cname.clumnName}+'}'"
+											my:attrappend="${null!=cname.valString?cname.valString:'data'}=${null!=cname.needVal?cname.needVal:''}"
+											>
+									</div>
+								</div>
+								<!-- <div class="form-group">
+									<label for="inputEmail" class="col-md-2 control-label">类型</label>
+
+									<div class="col-md-10">
+										<input type="text" class="form-control" id="inputEmail"
+											name="category" placeholder="category"
+											th:value="${cmsContent.categoryId}">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="textArea" class="col-md-2 control-label">Textarea</label>
+
+									<div class="col-md-10">
+										<textarea class="form-control" rows="10"
+											data-provide="markdown" name="content" id="textArea"
+											th:text="${cmsContentAttribute.text}">
+									
+									</textarea>
+										<span class="help-block">A longer block of help text
+											that breaks onto a new line and may extend beyond one line.</span>
+									</div>
+								</div>
+								-->
+								<div class="form-group">
+									<div class="col-md-10 col-md-offset-2">
+										<button type="button" class="btn btn-default"
+											th:text="#{form.cancal}">cancal</button>
+										<button type="submit" class="btn btn-primary"
+											th:text="#{form.submit}">Submit</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function() {
+			$(".dateInput").datetimepicker({
+				format : 'yyyy-mm-dd hh:ii:ss'
+			});
+
+		});
+	</script>
+</body>
+</html>

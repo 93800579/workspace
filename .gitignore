@@ -1,0 +1,15 @@
+
+*.log
+/.metadata/*
+.metadata/.lock
+/.recommenders/*
+/cms/target/*
+/cms/doc/*
+/cms/src/main/resources/static/bower_components/*
+chromeEXtenses/autoBuy.crx
+
+chromeEXtenses/autoBuy.pem
+
+cms/doc/PublicCMS 2016二次开发手册_20160524.docx
+
+RemoteSystemsTempFiles/.project

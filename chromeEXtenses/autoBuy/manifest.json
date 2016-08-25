@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "auto",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "1.0",
+"content_security_policy": "default-src 'none'; style-src 'self'; script-src 'self'; connect-src https://maps.googleapis.com; img-src https://maps.google.com",
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "html/popup.html"
+  },
+  "background": {
+    "scripts": ["js/background.js"],
+      "persistent": false
+   },
+   "icons": {
+        "128": "images/icon_128.png"
+    },
+    "content_scripts": [
+    {
+      "matches": ["http://vip2.bcniucai.com/client/?m=index&a=lotto&play=HG15FC"],
+      "all_frames":true,
+      "js": ["js/jquery.js", "js/myscript.js"]
+    }
+  ],
+  "permissions": [
+     "alarms",
+    "activeTab",
+    "tabs",
+    "storage",
+    "https://*/*"
+  ]
+}

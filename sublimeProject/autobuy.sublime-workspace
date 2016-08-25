@@ -1,0 +1,229 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"resoultion"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"pr",
+				"person"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy"
+	],
+	"file_history":
+	[
+		"/Users/log/Documents/workspace/cms/cmscategory/list.html",
+		"/Users/log/Documents/workspace/cms/com.ancs.cms.web/CmsCategoryController.java",
+		"/Users/log/Documents/workspace/cms/CmsCategoryController.java",
+		"/Users/log/Documents/temp/751.html",
+		"/Users/log/Desktop/a.json",
+		"/Users/log/Desktop/index.htm",
+		"/usr/bin/openssl",
+		"/usr/local/etc/nginx/nginx.conf",
+		"/usr/local/opt/nginx/conf/nginx.conf",
+		"/etc/my.cnf",
+		"/Users/log/Desktop/my-default.cnf",
+		"/Users/log/Documents/workspace/PublicCMS/PublicCMS/database/mysql-init-20160510.sql",
+		"/Users/log/.ssh/id_rsa.pub",
+		"/Volumes/soft/Work/BZOA/Code/src/com/ancs/oa/exchangeBox/dfky/GetXmlFromServer.java",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/log/Documents/python/test.js",
+		"/Users/log/Desktop/加班说明",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/User/node.sublime-build",
+		"/Users/log/Documents/python/test.py",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/User/python3.5.sublime-build",
+		"/Applications/Android Studio.app/Contents/bin/studio.vmoptions",
+		"/Applications/Android Studio.app/Contents/bin/idea.properties"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" \n",
+			"商业"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 351.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/python3.5.sublime-build",
+	"project": "autobuy.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
