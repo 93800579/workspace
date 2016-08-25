@@ -4,6 +4,82 @@
 		"selected_items":
 		[
 			[
+				"arr",
+				"arraySize"
+			],
+			[
+				"cou",
+				"countHitory"
+			],
+			[
+				"trigger",
+				"triggerClick"
+			],
+			[
+				"chec",
+				"checked"
+			],
+			[
+				"send",
+				"sendMessage	(page.js)"
+			],
+			[
+				"run",
+				"runtime"
+			],
+			[
+				"sett",
+				"setting"
+			],
+			[
+				"max",
+				"maxReTry"
+			],
+			[
+				"al",
+				"alarm"
+			],
+			[
+				"panel",
+				"panel-body"
+			],
+			[
+				"auto",
+				"autoOrder"
+			],
+			[
+				"try",
+				"tryTimes"
+			],
+			[
+				"par",
+				"parseInt"
+			],
+			[
+				"dom",
+				"domId"
+			],
+			[
+				"atr",
+				"atArrays"
+			],
+			[
+				"spl",
+				"split"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
 				"re",
 				"resoultion"
 			],
@@ -19,6 +95,97 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/myscript.js",
+			"settings":
+			{
+				"buffer_size": 5048,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/.gitignore",
+			"settings":
+			{
+				"buffer_size": 260,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/html/popup.html",
+			"settings":
+			{
+				"buffer_size": 1137,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/manifest.json",
+			"settings":
+			{
+				"buffer_size": 866,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/page.js",
+			"settings":
+			{
+				"buffer_size": 2039,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/tex.js",
+			"settings":
+			{
+				"buffer_size": 466,
+				"line_ending": "Unix",
+				"name": "var nav = new NavigationCollector,"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/options.js",
+			"settings":
+			{
+				"buffer_size": 1412,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/html/options.html",
+			"settings":
+			{
+				"buffer_size": 2935,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/background.js",
+			"settings":
+			{
+				"buffer_size": 836,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 68 files for \"chrome.alarms\"\n\n/Users/log/Downloads/basic/background.js:\n   61      // For testing only.  delayInMinutes will be rounded up to at least 1 in a\n   62      // packed or released extension.\n   63:     chrome.alarms.create({delayInMinutes: 0.1});\n   64    } else if (msg.delayedResponse) {\n   65      // Note: setTimeout itself does NOT keep the page awake. We return true\n   ..\n   78  });\n   79  \n   80: chrome.alarms.onAlarm.addListener(function() {\n   81    alert(\"Time's up!\");\n   82  });\n\n/Users/log/Downloads/gmail/background.js:\n  115      // Use a repeating alarm so that it fires again if there was a problem\n  116      // setting the next alarm.\n  117:     chrome.alarms.create('refresh', {periodInMinutes: delay});\n  118    }\n  119  }\n  ...\n  272      // TODO(mpcomplete): We should be able to remove this now, but leaving it\n  273      // for a little while just to be sure the refresh alarm is working nicely.\n  274:     chrome.alarms.create('watchdog', {periodInMinutes:5});\n  275    }\n  276  }\n  ...\n  288  \n  289  function onWatchdog() {\n  290:   chrome.alarms.get('refresh', function(alarm) {\n  291      if (alarm) {\n  292        console.log('Refresh alarm exists. Yay.');\n  ...\n  304  } else {\n  305    chrome.runtime.onInstalled.addListener(onInit);\n  306:   chrome.alarms.onAlarm.addListener(onAlarm);\n  307  }\n  308  \n\n6 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 1386,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/Users/log/Downloads/basic/background.js",
+			"settings":
+			{
+				"buffer_size": 3372,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -52,7 +219,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 476.0
 	},
 	"console":
 	{
@@ -73,10 +240,31 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy"
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/css",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/html",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js",
+		"/Users/log/Downloads/basic",
+		"/Users/log/Downloads/gmail"
 	],
 	"file_history":
 	[
+		"/Users/log/Downloads/gmail/background.js",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/background.js",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/manifest.json",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/myscript.js",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/Javascript Beautify/Default (OSX).sublime-keymap",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/bg.js",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/html/popup.html",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/page.js",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/html/options.html",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/HTMLBeautify/HTMLBeautify.sublime-settings",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/User/HTMLBeautify.sublime-settings",
+		"/Users/log/Library/Application Support/Sublime Text 3/Packages/Tag/Tag Package.sublime-settings",
+		"/Users/log/Documents/workspace/chromeEXtenses/autoBuy/ manifest.json",
+		"/Users/log/file",
 		"/Users/log/Documents/workspace/cms/cmscategory/list.html",
 		"/Users/log/Documents/workspace/cms/com.ancs.cms.web/CmsCategoryController.java",
 		"/Users/log/Documents/workspace/cms/CmsCategoryController.java",
@@ -102,13 +290,14 @@
 	],
 	"find":
 	{
-		"height": 30.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 104.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -116,6 +305,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"countHitory",
+			"tryTimes",
+			"arrays",
+			"reset",
+			"autoOrder",
+			"parsefloat",
+			"create",
+			"lostmoney",
+			"onAlarm",
+			"chrome.alarms",
+			"alt+f",
+			"selectmore",
+			"count_select_arr",
+			"selectnum",
+			"playlist",
 			" \n",
 			"商业"
 		],
@@ -135,18 +339,376 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/myscript.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1897,
+								1897
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1346.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/log/Documents/workspace/.gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/html/popup.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								399,
+								399
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 866,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								841,
+								841
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/page.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2039,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								305,
+								305
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/tex.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								461,
+								461
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var nav = new NavigationCollector,",
+							"is_xml": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/options.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1412,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								204,
+								204
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/html/options.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2935,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1949,
+								1958
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 680.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/log/Documents/workspace/chromeEXtenses/autoBuy/js/background.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 836,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1386,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										223,
+										236
+									],
+									[
+										426,
+										439
+									],
+									[
+										688,
+										701
+									],
+									[
+										955,
+										968
+									],
+									[
+										1084,
+										1097
+									],
+									[
+										1299,
+										1312
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								233,
+								233
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Users/log/Downloads/basic/background.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2935,
+								2862
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1285.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 38.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 38.0
 	},
 	"layout":
 	{
@@ -183,7 +745,7 @@
 	"project": "autobuy.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 114.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -221,7 +783,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 203.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
