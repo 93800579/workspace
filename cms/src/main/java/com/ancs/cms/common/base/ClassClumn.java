@@ -127,8 +127,10 @@ public class ClassClumn extends Base {
 		List<ClassClumn> tools = new ArrayList<ClassClumn>();
 		for (Field f : fields) {
 			ClassClumn classClumn = new ClassClumn(f,c);
+			System.out.println(classClumn);
 			if (null != classClumn.cnName) {
 				tools.add(classClumn);
+				
 			}
 		}
 		return tools;
@@ -159,10 +161,7 @@ public class ClassClumn extends Base {
 
 	@Override
 	public String toString(){
-		return this.clumnName+":"+this.clumnType+":"+this.needVal+":"+this.valString;
+		return this.clumnName+":"+this.clumnType+":"+this.needVal+":"+this.valString+":"+this.cnName;
 	}
-	
-	public static void main(String arg[]) {
-		System.out.println(getListByC(CmsCategory.class));
-	}
+
 }

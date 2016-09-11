@@ -92,10 +92,10 @@ public class SyncFromZhihu {
 		RestTemplate restTemplate = new RestTemplate();
 		return restTemplate.getForObject(url, c);
 	}
-
-	public static void main(String args[]) {
-		Date date = new Date();
-		String dateStr = DateFormatUtils.format(date, "yyyyMMdd");
-		System.out.println(dateStr);
-	}
+//
+//	public static void main(String args[]) {
+//		Date date = new Date();
+//		String dateStr = DateFormatUtils.format(date, "yyyyMMdd");
+//		System.out.println(dateStr);
+//	}
 }

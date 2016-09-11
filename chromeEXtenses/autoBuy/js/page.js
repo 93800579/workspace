@@ -68,6 +68,7 @@ var addBag = function(content) {
     chrome.browserAction.setBadgeText({ 'text': content });
 };
 var sendMessageBegin = function(messageContent) {
+    console.log('send message');
     chrome.runtime.sendMessage({ message: messageContent }, function(response) {
         //$("#hello").text(response.farewell);
     });

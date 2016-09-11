@@ -186,10 +186,6 @@ public class CreateModel {
 		}
 	}
 
-	public static void main(String args[]) {
-		// createByPackage();
-		String[] files = {"list.html","form.html"};
-		createHtmlsByModelClass(CmsCategory.class,files);
-	}
+	
 
 }

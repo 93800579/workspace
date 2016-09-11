@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<!-- //用 th:remove 移除除了第一个外的静态数据，用第一个tr标签进行循环迭代显示 -->
+			<p th:text="${model.shortName}"></p>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-4">
+				<div th:include="footer :: copy">...</div>
+			</div>
+		</div>
+	</div>
+<script th:inline="javascript">
+/*<![CDATA[*/
+	$(function(){
+		var url ='/remote/'
+	});
+    var id = /*[[${id}]]*/ 1;
+	
+
+/*]]>*/
+
+</script>
+</body>
+</html>

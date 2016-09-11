@@ -21,3 +21,5 @@ cms/.classpath
 PublicCMS/PublicCMS/publiccms-by-maven/bin/.project
 
 cms/.classpath
+
+.DS_Store

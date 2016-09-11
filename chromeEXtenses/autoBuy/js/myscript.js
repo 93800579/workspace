@@ -14,15 +14,17 @@ chrome.runtime.onMessage.addListener(
  * 初始化状态
  * @return {[type]} [description]
  */
-var setting = { limitRest: false, maxReTry: 7, minRest: 0.5 ,arraySize:5};
+var setting = { limitRest: false, maxReTry: 7, minRest: 0.5, arraySize: 5 };
 var initAllNeed = function(callback) {
     changeIds();
     //初始化setting
     //
-    var arr = ['limitRest', 'maxReTry', 'minRest','arraySize'];
+    var arr = ['limitRest', 'maxReTry', 'minRest', 'arraySize'];
     chrome.storage.local.get(arr, function(obj) {
         if (obj)
             setting = obj;
+        if (setting.arraySize > 5)
+            setting.arraySize = 5;
         beginOrder();
     });
 };
@@ -68,8 +70,8 @@ var op = function() {
     var countHitory = function() {
 
         arrays = Array();
-        for (i = 0; i < Math.round(setting.arraySize); i++){
-        	arrays[i] = 0;
+        for (i = 0; i < Math.round(setting.arraySize); i++) {
+            arrays[i] = 0;
         }
         $("#historylot li").each(function(index) {
             var titils = $(this).attr('title');
@@ -114,13 +116,14 @@ var op = function() {
     };
 
     var jiabei = function(isUp) {
-        if (isUp) {
-            var v = $("#lt_sel_times").val();
-            if (v == 1) {
-                var domm = $("#customAdd .add").trigger('click');
-                console.log("uping........");
-            }
+        var size = Math.pow(2, isUp);
+        console.log(size);
+        if (isUp > 0) {
+            $("#lt_sel_times").val(size - 1);
+            var domm = $("#customAdd .add").trigger('click');
+            console.log("uping........");
         } else {
+            $("#lt_sel_times").val('2');
             console.log("set down.......");
             var domm = $("#customAdd .sub").trigger('click');
         }
@@ -149,17 +152,17 @@ var op = function() {
             console.log('当前不足4条记录无法判断');
             return fasle;
         }
-        if (varNow.lastStatus == 0 || varNow.lastStatus == 1
-        	|| tryTimes >= setting.maxReTry 
-        	|| (tryTimes == 0 && varNow.lastStatus != -1)) {
+        if (varNow.lastStatus == 0 || varNow.lastStatus == 1 || tryTimes >= setting.maxReTry || (tryTimes == 0 && varNow.lastStatus != -1)) {
             countHitory();
-            jiabei(false);
+            jiabei(0);
             tryTimes = 0;
         } else {
-        	 if(tryTimes==0)
-        	 	countHitory();
-            jiabei(true);
-            tryTimes++;
+
+            if (tryTimes == 0)
+                countHitory();
+            tryTimes = tryTimes+1;
+            jiabei(tryTimes);
+            
         }
         console.log(arrays);
         for (var i in arrays) {
@@ -180,3 +183,6 @@ var op = function() {
 
     return { "orderNow": orderNow };
 };
+$(function() {
+    console.log("iam runngin....");
+});

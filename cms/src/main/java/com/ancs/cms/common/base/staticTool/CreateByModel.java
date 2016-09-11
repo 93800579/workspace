@@ -3,16 +3,29 @@ package com.ancs.cms.common.base.staticTool;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.tomcat.util.security.MD5Encoder;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.context.IContext;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 
+import com.ancs.alphablue.models.AlphablueOrder;
+import com.ancs.alphablue.models.AlphablueProduct;
+import com.ancs.cloudFiles.models.SysMoudle;
+import com.ancs.cloudFiles.models.SysRole;
+import com.ancs.cloudFiles.models.SysRoleAuthorized;
+import com.ancs.cloudFiles.models.SysRoleMoudle;
+import com.ancs.cloudFiles.models.SysRoleUser;
+import com.ancs.cloudFiles.models.SysUser;
 import com.ancs.cms.common.base.ClassClumn;
 import com.ancs.cms.common.base.thymeleaf.MyDialect;
 
@@ -88,6 +101,51 @@ public class CreateByModel {
 		this.create4Java(variables, true, templateNames, packageNames, className, true);
 	}
 
+
+	private String parentPackage;
+	
+	
+	public String getParentPackage() {
+		return parentPackage;
+	}
+
+	public void setParentPackage(String parentPackage) {
+		this.parentPackage = parentPackage;
+	}
+
+	public void create4JavaByModel(Class<?> c) {
+		Map<String, Object> variables = new HashMap<String, Object>();
+		String modelPath = c.getName();
+		String className = c.getSimpleName();
+		if(null==this.parentPackage)
+			throw new RuntimeException();
+		variables.put("modelPath", modelPath);
+		variables.put("className", className);
+		variables.put("packageName", this.parentPackage);
+		variables.put("base","sys");
+		String parent = (this.destSrc + File.separator +this.parentPackage.replace(".", File.separator));
+		File srcPath = new File(templateParent + File.separator + "java");
+		File[] tempLateParent = srcPath.listFiles();
+		for(File temp:tempLateParent){
+			if(temp.isDirectory()){
+				File[] files = temp.listFiles();
+				for(File t:files){
+					if(t.isFile()&&t.length()>0){
+						variables.put("dest", temp.getName());
+						String destParent = parent+File.separator+temp.getName();
+						new File(destParent).mkdirs();
+						String destFile = (destParent+File.separator+className+t.getName());
+						Context context = new Context(Locale.CHINA, variables);
+						resloveByFileToFile(context, true, t.getAbsolutePath(), destFile, "TEXT");
+					}
+				}
+			}
+		}
+	}
+
+	
+	
+	
 	public void create4HtmlByModel(Class<?> c) {
 		Map<String, Object> variables = new HashMap<String, Object>();
 		String className = c.getSimpleName();
@@ -95,6 +153,7 @@ public class CreateByModel {
 		parent.mkdirs();
 		variables.put("className", className);
 		variables.put("list", ClassClumn.getListByC(c));
+		variables.put("base","sys");
 		Context context = new Context(Locale.CHINA, variables);
 		File src = new File(templateParent + File.separator + "html");
 		File[] tempLateFile = src.listFiles();
@@ -110,10 +169,16 @@ public class CreateByModel {
 		}
 	}
 
-	public void createByClassSet(Set<Class<?>> classes, boolean createJava, boolean createHtml) {
+	/**
+	 * 生成
+	 * @param classes 被生成的类
+	 * @param createJava  是否生成java
+	 * @param createHtml  是否生成html
+	 */
+	public void createByClassSet(Iterable<Class<?>> classes, boolean createJava, boolean createHtml) {
 		for (Class<?> c : classes) {
 			if (createJava) {
-				// System.out.println("do nothing")
+				create4JavaByModel(c);
 			}
 			if (createHtml) {
 				create4HtmlByModel(c);
@@ -141,17 +206,31 @@ public class CreateByModel {
 	final static String tDestsrc = "/Users/log/Documents/workspace/cms/src/main/java";
 	final static String[] javaTemplate = { "Controller.java", "Respository.java" };
 
-	public static void main(String args[]) {
-		CreateByModel createByModel = new CreateByModel(RPRE, webdoDir, tDestsrc);
-		// String temp[] = {"Controller.java"};
-		// String packageName[] = {"com.ancs.cms.web"};
-		// createByModel.create4JavaByModel(CmsTagType.class, temp,
-		// packageName);
-		String[] cl = { "com.ancs.cms.models" };
-
-		//createByModel.createByPackage(cl, false, true);
-		createOther();
-	}
+	/**
+	 * 
+	 * @param args
+	 */
+//	public static void main(String args[]) {
+//		String adminWebDir = "/Users/log/Documents/workspace/cms/src/main/resources/templates/alphablue";
+//		CreateByModel createByModel = new CreateByModel(RPRE, adminWebDir, tDestsrc);
+//		createByModel.setParentPackage("com.ancs.alphablue");
+//		Class<?>[] classes2 = {AlphablueOrder.class,AlphablueProduct.class};
+//		createByModel.createByClassSet(Arrays.asList(classes2), true, true);
+//		//createByModel.create4JavaByModel(SysUser.class);
+////		createByModel.createByClassSet(s,false,true);
+//		// String temp[] = {"Controller.java"};
+//		// String packageName[] = {"com.ancs.cms.web"};
+//		// createByModel.create4JavaByModel(CmsTagType.class, temp,
+//		// packageName);
+//		//String[] cl = { "com.ancs.cms.models" };
+//
+//		//createByModel.createByPackage(cl, false, true);
+//		//createOther();
+//	
+//		String s1 = "test";
+//		String so = MD5Encoder.encode(s1.getBytes());
+//		System.out.println(so);
+//	}
 
 	/**
 	 * 生成左侧菜单等

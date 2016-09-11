@@ -7,57 +7,71 @@
 </head>
 <body>
 	<div class="container">
-		<div class="navbar-fixed-top">
-			<div class="progress progress-striped active" id="pb"
-				style="display: none">
-				<div class="progress-bar progress-bar-info" style="width: 20%"
-					id="idw"></div>
-			</div>
-		</div>
 		<div class="row" th:include="toolbar"></div>
 		<div class="row">
 			<div
 				th:include="left(params1='[[${#strings.toLowerCase(className)}]]')"></div>
-			<div class="input-group">
 
-				<span class="input-group-btn"> <a href="#"
-					th:href="@{/cms/[[${#strings.toLowerCase(className)}]]/form}"
-					class="btn btn-raised btn-success">Add</a>
-				</span>
-			</div>
 			<div class="col-md-10">
 				<div class="panel panel-default">
 					<div class="panel-body" style="overflow: scrollor">
 						<!-- /input-group -->
+						<form method="post" th:action="@{/[[${base}]]/[[${#strings.toLowerCase(className)}]]/delIds}"
+								id="delForm">
+							<span class="btn-group"> <a href="#"
+									th:href="@{/[[${base}]]/[[${#strings.toLowerCase(className)}]]/form}"
+									class="btn btn-raised btn-success" th:text="#{button.add}">Add</a>
+								</span>
+								<div class="btn-group">
+									<button type="button" class="btn btn-danger"
+										th:text="#{button.del}" onclick="delByIds()">del</button>
+								</div>	
 						<table class="table table-striped">
+								
 							<tbody>
 								<!-- 　//将后台传出的 productList 的集合进行迭代，用product参数接收，通过product访问属性值 -->
-								<tr th:each="model:${list}" th:css="info">
+								<tr th:each="model,stat:${list}" th:css="info">
 									<!-- //用count进行统计，有顺序的显示 -->
-									<td><a
-										th:href="@{/cms/[[${#strings.toLowerCase(className)}]]/form?id={id}(id=${model.id})}"
+									<td>
+									<label> <input type="checkbox"
+												name="selectId" th:value="${model.id}"> <span
+												th:text="${stat.count}"></span>
+										</label>
+									
+									<a
+										th:href="@{/[[${base}]]/[[${#strings.toLowerCase(className)}]]/form?id={id}(id=${model.id})}"
 										th:text="${model.id}"></a></td>
 									<td my:each="cname:${list}" my:if="${cname.clumnName!='id'}"
-										my:switch="${cname.clumnType}"><span
-										my:case="'date'"
+										my:switch="${cname.clumnType}"><span my:case="'date'"
 										my:code="text=${'${#dates.format(model.'+cname.clumnName+')}'}"></span>
-										<span
-										my:case="'boolean'"
+										<span my:case="'boolean'"
 										my:code="text=${'${model.'+cname.clumnName+'}?#{message.true1}:#{message.false1}'}"></span>
-										<span
-										my:case="*"
-										my:code="text=${'${model.'+cname.clumnName+'}'}"></span>
-										
-										
-										</td>
+										<span my:case="*"
+										my:code="text=${'${model.'+cname.clumnName+'}'}"></span></td>
 
 								</tr>
 							</tbody>
+							
 						</table>
+						</form>
+						 <ul class="pagination" id="navfen"></ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+<script>
+function delByIds(){
+	var size = $("input:checked").size();
+	if(size<1){
+		alert("未选中数据");
+		
+	}
+	else{
+		if(confirm('确认删除?'))
+			$("#delForm").submit();
+	}
+}
+</script>
 </body>
 </html>

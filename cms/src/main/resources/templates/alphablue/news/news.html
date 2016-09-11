@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="/alphablue/header">
+<body class="">
+<div class="bg">
+  <div class="dbf dbf_white">
+    <p class="logo"> <a href="index.html"> <img src="images/logo_blue.png"  height="65" class="logo_blue large"></a></p>
+    <!--导航-->
+    <div class="topRightDom">
+      <div th:include="alphablue/nav">
+      <!--<div class="rm"> <a class="zc" href="https://www.zipeiyi.com/regist/regist.html">注册</a> <a class="dr" href="https://www.zipeiyi.com/login/login.html">登录</a> </div>--> 
+    </div>
+  </div>
+</div>
+<div class="content_news"> 
+  
+  <!--新闻列表-->
+  <div id="articleList" class="list_news">
+  	<div style="color:#666; font-size:14px; padding:20px 20px 0; position:absolute; margin-top:-50px">
+    	<span th:text="${category.name}"></span>
+    </div>
+    <div class="list_simple" th:each="model,stat:${list}">
+      <div class="left"> <img width="100%" height="100%" src="images/temp1.jpg" th:src="@{${model.cover}}"> </div>
+      <div class="right"> <a class="title" href="share_news_info.html" th:href="@{/alphablue/view/{id}(id=${model.id})}" th:text="${model.title}"></a>
+        <div class="title_sm"> <span class="icon_1" th:text="${model.createDate}">2016-07-28</span> 
+        <span class="icon_2" th:text="${model.author}"></span> </div>
+        <div class="content">
+          <p th:text="${model.description}"></p>
+        </div>
+      </div>
+    </div>
+  <ul class="pagination" id="navfen"></ul>
+  </div>
+
+</div>
+</div>
+
+
+<div th:include="alphablue/footer"></div>
+<script src="js/jquery.js" th:src="@{/alphablue/js/jPages.js}"></script> 
+<script>
+$('#navfen').jqPaginator({
+    totalPages: [[${list.getTotalPages()}]],
+    visiblePages: 10,
+    currentPage: [[${param.page}?${param.page}:1]],
+    page:'<li class="page"><a href="[[@{/alphablue/news?code={zhihu}&page=(zhihu=${category.code})}]]{{page}}">{{page}}</a></li>'
+});
+</script>
+</body>
+</html>

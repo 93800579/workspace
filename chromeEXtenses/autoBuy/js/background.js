@@ -4,7 +4,8 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
     }
 });
 chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {  
+    function(request, sender, sendResponse) { 
+        console.log(request); 
         if (request.message == "autobegin") {
         	sendMessage();
             chrome.alarms.onAlarm.addListener(sendMessage);
@@ -21,9 +22,17 @@ chrome.runtime.onMessage.addListener(
 
 
 var sendMessage = function() {
-    chrome.tabs.query({ url: 'http://vip2.bcniucai.com/client/index.php' }, function(tabs) {
+    chrome.tabs.query({ index:0}, function(tabs) {
+        if(tabs&&tabs.length>0){
         chrome.tabs.sendMessage(tabs[0].id, { message: "begin" }, function(response) {
             //$("#hello").text(response.farewell);
         });
+        }
+        else{
+            console.log('can not find');
+            alert('未找到指定的页面');
+            chrome.alarms.clearAll(function(s){
+            });
+        }
     });
 };

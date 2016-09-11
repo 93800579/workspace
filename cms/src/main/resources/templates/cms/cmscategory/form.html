@@ -9,26 +9,27 @@
 	<div class="container">
 		<div class="row" th:include="toolbar"></div>
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
+		<div th:include="left"></div>
+			<div class="col-md-10">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<form class="form-horizontal"
 							th:action="@{/cms/cmscategory/save}"
 							method="post">
 							<fieldset>
-								<legend>表单</legend>
+								<legend>栏目</legend>
 								<input type="hidden" name="id" th:value="${model.id}">
 
 								
 
-								<div class="form-group">
+								<div class="form-group"  style="display:none">
 
 									<label class="col-md-2 control-label" for="siteId">站点</label>
 									
 									
 									<div class="col-md-10">
 										<input type="number" class="form-control"
-											id="siteId" name="siteId" placeholder="站点" required="true" th:value="${model.siteId}">
+											id="siteId" name="siteId" placeholder="站点"  th:value="${model.siteId}">
 									</div>
 									
 								</div>
@@ -41,36 +42,36 @@
 									
 									<div class="col-md-10">
 										<input type="text" class="form-control"
-											id="name" name="name" placeholder="名称" required="true" th:value="${model.name}"
+											id="name" name="name" placeholder="名称"  th:value="${model.name}"
 											>
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="parentId">父分类</label>
 									
 									
 									<div class="col-md-10">
 										<input type="number" class="form-control"
-											id="parentId" name="parentId" placeholder="父分类" required="false" th:value="${model.parentId}">
+											id="parentId" name="parentId" placeholder="父分类"  th:value="${model.parentId}">
 									</div>
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="typeId">分类类型</label>
 									
 									
 									<div class="col-md-10">
 										<input type="number" class="form-control"
-											id="typeId" name="typeId" placeholder="分类类型" required="false" th:value="${model.typeId}">
+											id="typeId" name="typeId" placeholder="分类类型"  th:value="${model.typeId}">
 									</div>
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="childIds">子分类</label>
 									
@@ -78,12 +79,12 @@
 									
 									<div class="col-md-10">
 										<input type="text" class="form-control"
-											id="childIds" name="childIds" placeholder="子分类" required="false" th:value="${model.childIds}"
+											id="childIds" name="childIds" placeholder="子分类"  th:value="${model.childIds}"
 											>
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="tagTypeIds">标签ID</label>
 									
@@ -91,7 +92,7 @@
 									
 									<div class="col-md-10">
 										<input type="text" class="form-control"
-											id="tagTypeIds" name="tagTypeIds" placeholder="标签ID" required="false" th:value="${model.tagTypeIds}"
+											id="tagTypeIds" name="tagTypeIds" placeholder="标签ID"  th:value="${model.tagTypeIds}"
 											>
 									</div>
 								</div>
@@ -104,25 +105,25 @@
 									
 									<div class="col-md-10">
 										<input type="text" class="form-control"
-											id="code" name="code" placeholder="编码" required="false" th:value="${model.code}"
+											id="code" name="code" placeholder="编码"  th:value="${model.code}"
 											>
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="templatePath">模板路径</label>
 									
 									
 									
-									<div class="col-md-10">
+									<div class="col-md-10" >
 										<input type="text" class="form-control"
-											id="templatePath" name="templatePath" placeholder="模板路径" required="false" th:value="${model.templatePath}"
+											id="templatePath" name="templatePath" placeholder="模板路径"  th:value="${model.templatePath}"
 											>
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="path">路径</label>
 									
@@ -130,12 +131,12 @@
 									
 									<div class="col-md-10">
 										<input type="text" class="form-control"
-											id="path" name="path" placeholder="路径" required="true" th:value="${model.path}"
+											id="path" name="path" placeholder="路径"  th:value="${model.path}"
 											>
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="hasStatic">有静态化</label>
 									<div class="col-md-10">
@@ -151,7 +152,7 @@
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="url">地址</label>
 									
@@ -159,12 +160,12 @@
 									
 									<div class="col-md-10">
 										<input type="text" class="form-control"
-											id="url" name="url" placeholder="地址" required="false" th:value="${model.url}"
+											id="url" name="url" placeholder="地址"  th:value="${model.url}"
 											>
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="contentPath">内容路径</label>
 									
@@ -172,7 +173,7 @@
 									
 									<div class="col-md-10">
 										<input type="text" class="form-control"
-											id="contentPath" name="contentPath" placeholder="内容路径" required="false" th:value="${model.contentPath}"
+											id="contentPath" name="contentPath" placeholder="内容路径"  th:value="${model.contentPath}"
 											>
 									</div>
 								</div>
@@ -184,12 +185,12 @@
 									
 									<div class="col-md-10">
 										<input type="number" class="form-control"
-											id="pageSize" name="pageSize" placeholder="每页数据" required="false" th:value="${model.pageSize}">
+											id="pageSize" name="pageSize" placeholder="每页数据"  th:value="${model.pageSize}">
 									</div>
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="allowContribute">允许投稿</label>
 									<div class="col-md-10">
@@ -212,12 +213,12 @@
 									
 									<div class="col-md-10">
 										<input type="number" class="form-control"
-											id="sort" name="sort" placeholder="排序" required="true" th:value="${model.sort}">
+											id="sort" name="sort" placeholder="排序"  th:value="${model.sort}">
 									</div>
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="hidden">是否隐藏</label>
 									<div class="col-md-10">
@@ -233,7 +234,7 @@
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="disabled">是否删除</label>
 									<div class="col-md-10">
@@ -249,26 +250,26 @@
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="contents">内容数</label>
 									
 									
 									<div class="col-md-10">
 										<input type="number" class="form-control"
-											id="contents" name="contents" placeholder="内容数" required="true" th:value="${model.contents}">
+											id="contents" name="contents" placeholder="内容数"  th:value="${model.contents}">
 									</div>
 									
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" style="display:none">
 
 									<label class="col-md-2 control-label" for="extendId">扩展ID</label>
 									
 									
 									<div class="col-md-10">
 										<input type="number" class="form-control"
-											id="extendId" name="extendId" placeholder="扩展ID" required="false" th:value="${model.extendId}">
+											id="extendId" name="extendId" placeholder="扩展ID"  th:value="${model.extendId}">
 									</div>
 									
 								</div>
@@ -298,8 +299,6 @@
 								-->
 								<div class="form-group">
 									<div class="col-md-10 col-md-offset-2">
-										<button type="button" class="btn btn-default"
-											th:text="#{form.cancal}">cancal</button>
 										<button type="submit" class="btn btn-primary"
 											th:text="#{form.submit}">Submit</button>
 									</div>

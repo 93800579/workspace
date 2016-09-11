@@ -1,10 +1,27 @@
 <div class="col-sm-2">
 	<ul class="nav nav-pills nav-stacked">
-		<li th:class="${params1=='lanmu'}? 'active' : ''"><a
-			href="javascript:void(0)" th:href="@{/cms/admin/lanmu}">栏目管理</a></li>
-		<li th:class="${params1=='wen'}? 'active' : ''"><a
-			href="javascript:void(0)" th:href="@{/cms/admin/list}">文章管理</a></li>
-		<li class="disabled" th:class="${params1=='sys'}? 'active' : ''"><a href="javascript:void(0)" th:href="@{/cms/admin/system}">系统管理</a></li>
-		
+		<li th:class="${params1=='cmscategory'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/cms/cmscategory/list}">栏目管理</a></li>
+		<li th:class="${params1=='cmscontent'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/cms/cmscontent/list}">文章管理</a></li>
+		<li th:class="${params1=='sysuser'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/sysuser/list}">人员管理</a></li>
+		<li th:class="${params1=='sysrole'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/sysrole/list}">角色管理</a></li>
+		<li th:class="${params1=='sysroleauthorized'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/sysroleauthorized/list}">角色地址管理</a></li>
+		<li th:class="${params1=='sysroleuser'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/sysroleuser/list}">用户角色管理</a></li>
+		<li th:class="${params1=='sysmoudle'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/sysmoudle/list}">模块管理</a></li>
+		<li th:class="${params1=='sysrolemoudle'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/sysrolemoudle/list}">角色模块管理</a></li>
+		<li class="disabled" th:class="${params1=='sys'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/cms/admin/charts}">系统状态</a></li>
+		<li th:class="${params1=='alphablueorder'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/alphablueorder/list}">订单记录</a></li>
+		<li th:class="${params1=='alphablueproduct'}? 'active' : ''"><a
+			href="javascript:void(0)" th:href="@{/sys/alphablueproduct/list}">产品管理</a></li>
+
 	</ul>
 </div>

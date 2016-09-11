@@ -54,5 +54,12 @@ public class CmsCategoryController {
 		this.repository.delete(id);
 		return "redirect:/cms/cmscategory/list";
 	}
+	@PostMapping("/delIds")
+	public String delIds(@RequestParam("selectId")Integer[] ids){
+		for(int id:ids){
+			repository.delete(id);
+		}
+		return "redirect:/cms/cmscategory/list";
+	}
 }
 	

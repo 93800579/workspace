@@ -16,150 +16,74 @@
 		</div>
 		<div class="row" th:include="toolbar"></div>
 		<div class="row">
-			<div
-				th:include="left(params1='cmscategory')"></div>
-			<div class="input-group">
+			<div th:include="left(params1='cmscategory')"></div>
 
-				<span class="input-group-btn"> <a href="#"
-					th:href="@{/cms/cmscategory/form}"
-					class="btn btn-raised btn-success">Add</a>
-				</span>
-			</div>
 			<div class="col-md-10">
 				<div class="panel panel-default">
 					<div class="panel-body" style="overflow: scrollor">
 						<!-- /input-group -->
+						<form method="post" th:action="@{/cms/cmscategory/delIds}" id="delForm">
+
+							<div class="btn-group"> <a href="#"
+								th:href="@{/cms/cmscategory/form}"
+								class="btn btn-raised btn-success" th:text="#{button.add}">add</a>
+							</div>
+							<div class="btn-group"> 
+								<button type="button" class="btn btn-danger" th:text="#{button.del}" onclick="delByIds()">del</button>
+							</div>
+
 						<table class="table table-striped">
+						<thead>
+									<tr>
+										<th>#</th>
+										<th>名称</th>
+										<th>代码</th>
+										<th>每页数量</th>
+										<th>排序</th>
+									</tr>
+								</thead>	
 							<tbody>
 								<!-- 　//将后台传出的 productList 的集合进行迭代，用product参数接收，通过product访问属性值 -->
-								<tr th:each="model:${list}" th:css="info">
+								<tr th:each="model,stat:${list}" th:css="info">
 									<!-- //用count进行统计，有顺序的显示 -->
+									<td>
+										<div class="checkbox">
+											<label> <input type="checkbox" name="selectId"
+												th:value="${model.id}"> <span
+												th:text="${stat.count}"></span>
+											</label>
+										</div>
+
+									</td>
+
 									<td><a
 										th:href="@{/cms/cmscategory/form?id={id}(id=${model.id})}"
-										th:text="${model.id}"></a></td>
-									
-									<td>
-										
-										<span th:text="${model.siteId}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.name}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.parentId}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.typeId}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.childIds}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.tagTypeIds}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.code}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.templatePath}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.path}"></span>
-										
-										
-										</td>
-									<td>
-										<span th:text="${model.hasStatic}?#{message.true1}:#{message.false1}"></span>
-										
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.url}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.contentPath}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.pageSize}"></span>
-										
-										
-										</td>
-									<td>
-										<span th:text="${model.allowContribute}?#{message.true1}:#{message.false1}"></span>
-										
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.sort}"></span>
-										
-										
-										</td>
-									<td>
-										<span th:text="${model.hidden}?#{message.true1}:#{message.false1}"></span>
-										
-										
-										
-										</td>
-									<td>
-										<span th:text="${model.disabled}?#{message.true1}:#{message.false1}"></span>
-										
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.contents}"></span>
-										
-										
-										</td>
-									<td>
-										
-										<span th:text="${model.extendId}"></span>
-										
-										
-										</td>
+										th:text="${model.name}"></a></td>
 
+									<td><span th:text="${model.code}"></span></td>
+									<td><span th:text="${model.pageSize}"></span></td>
+									<td><span th:text="${model.sort}"></span></td>
 								</tr>
 							</tbody>
 						</table>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+<script>
+function delByIds(){
+	var size = $("input:checked").size();
+	if(size<1){
+		alert("未选中数据");
+		
+	}
+	else{
+		if(confirm('确认删除?'))
+		$("#delForm").submit();
+	}
+}
+</script>	
 </body>
 </html>

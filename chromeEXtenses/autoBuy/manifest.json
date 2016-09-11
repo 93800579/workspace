@@ -18,7 +18,7 @@
     },
     "content_scripts": [
     {
-      "matches": ["http://vip2.bcniucai.com/client/?m=index&a=lotto&play=HG15FC"],
+      "matches": ["http://*/client/?m=index&a=lotto&play=HG15FC"],
       "all_frames":true,
       "js": ["js/jquery.js", "js/myscript.js"]
     }
