@@ -205,8 +205,12 @@ table {
           <tbody>
             <tr>
               <td width="100" class="col"><a href="product_two.html" target="_blank" onclick=""> <img width="80" height="80" src="images/product2_buy.png"> </a></td>
-              <td width="300" class="col"><a href="product_two.html" target="_blank" onclick="">无耗材净化器</a></td>
-              <td class="col"><p class="price">699元 × 1</p></td>
+              <td width="300" class="col"><a href="product_two.html" target="_blank" onclick=""
+            	  th:text="${idt.getProductById(order.productId).getDescrption()}"
+              >无耗材净化器</a></td>
+              <td class="col"> <p class="price"><span th:text="${#numbers.formatDecimal(idt.getProductById(order.productId).getPrice(),3,2)}">699元</span> ×
+              <span th:text="${order.count}"></span>
+              </p></td>
               <td class="col"></td>
             </tr>
           </tbody>
@@ -228,20 +232,17 @@ table {
           <tbody>
             <tr>
               <th>商品总价：</th>
-              <td><span class="num">699</span>元</td>
+              <td><span class="num" th:text="${#numbers.formatDecimal(idt.getProductById(order.productId).getPrice(),3,2)}">699</span>元</td>
             </tr>
-            <tr>
-              <th>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：</th>
-              <td><span class="num">0</span>元</td>
-            </tr>
-            <tr>
+            
+            <!-- <tr>
               <th>订单金额：</th>
-              <td><span class="num">699</span>元</td>
+              <td><span class="num" >699</span>元</td>
             </tr>
             <tr>
               <th class="total">实付金额：</th>
               <td class="total"><span class="num">699</span>元</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
