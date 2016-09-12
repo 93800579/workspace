@@ -1,4 +1,4 @@
-// Validation errors messages for Parsley
+﻿// Validation errors messages for Parsley
 // Load this after Parsley
 
 Parsley.addMessages('zh-cn', {
@@ -26,6 +26,6 @@ Parsley.addMessages('zh-cn', {
   equalto:        "输入值不同"
 });
 Parsley.addMessages('zh-cn', {
-	  dateiso: "请输入正确格式的日期 (YYYY-MM-DD)."
+	  dateiso: "请输入正确格式的日期  (YYYY-MM-DD)."
 	});
 Parsley.setLocale('zh-cn');
