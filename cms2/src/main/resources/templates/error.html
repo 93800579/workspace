@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>
+				ERROR <span th:text="${status}"></span>
+			</h1>
+			<p th:text="${path}"></p>
+			<p th:text="${timestamp}"></p>
+			<p th:text="${error}"></p>
+			<p th:text="${exception}"></p>
+			<p th:text="${message}"></p>
+			<div th:text="${errors}"></div>
+		</div>
+	</div>
+</body>
+</html>

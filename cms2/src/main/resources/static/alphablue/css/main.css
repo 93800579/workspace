@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* 二级导航*/
+.second_nav{display:none; position:absolute; margin-top:29px;box-shadow:0 3px 3px rgba(0,0,0,0.1); min-width:100px}
+.second_nav{filter:Alpha(opacity=90);background:#FFF;}
+.second_nav{background:rgba(255, 255, 255, 0.9) !important;}
+.bg .nav ul.second_nav li.second_nav_li{ display: block; float:none; margin:0; padding: 8px 10px 0}
+.second_nav_li:hover{ background-color:#0366ce; color:#fff}
+a.first_nav_link{padding-bottom:30px}
+
+.contact_main.contact{ background:url(../images/contactBg.jpg) no-repeat center; height:850px; }
+.contact_main .body {margin:0px auto; padding-top:180px; width:1280px; height:570px}
+.contact_main .body .leftPanel{width:517px ; height:100%; border-right:1px solid #bbbbbb;  display:inline-block; text-align:center; float:left}
+.contact_main .body .leftPanel .imgDiv{margin-top:150px}
+.contact_main .body .leftPanel .text{font-size:18px; color:#6ea1cd;padding-left: 170px;}
+
+.contact_main .body .rightPanel{height:100%; display:inline-block; margin-left:40px; float:left}
+.contact_main .body .rightPanel .title {color: #171717; font-size: 32px; margin-top: 20px; margin-bottom:50px}
+.contact_main .body .rightPanel .text {color: #545454; font-size: 18px;}
+.contact_main .body .rightPanel .textLast {border-bottom:1px solid #bbbbbb; padding-bottom:20px; margin-bottom:20px}
+.contact_main .body .rightPanel .contact_icon {vertical-align:text-top; margin-right:5px}
+.contact_main .body .rightPanel .serviceTel { font-size:30px; color:#0366ce}
+
+
+.contact_main .body div { line-height:40px}
+.contact_main .body .wxCode { padding-left:180px}
+/*在线客服*/
+.customer-service {
+    box-sizing: content-box;
+    margin-top: 100px;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    width: 40px;
+    z-index: 2147483583;
+}
+.customer-service img{border-radius: 5px 0 0 5px;}

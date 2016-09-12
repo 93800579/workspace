@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+</head>
+<body>
+	<div class="container">
+		<div class="row" th:include="toolbar"></div>
+		<div class="row">
+			<div
+				th:include="left(params1='alphablueproduct')"></div>
+			<div class="col-md-10">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+						<form class="form-horizontal"
+							th:action="@{/sys/alphablueproduct/save}"
+							method="post">
+
+							<fieldset>
+								<input type="hidden" name="id" th:value="${model.id}">
+								<div class="form-group">
+									<div class="col-md-10">
+
+										<button type="submit" class="btn btn-default"
+											th:text="#{form.save}">save</button>
+									</div>
+								</div>
+								
+								<div class="form-group">
+
+									<label class="col-md-2 control-label" for="pname">产品名称</label>
+									
+									
+									
+									<div class="col-md-10">
+										<input type="text" class="form-control"
+											id="pname" name="pname" placeholder="产品名称" required="false" th:value="${model.pname}">
+									</div>
+								</div>
+								<div class="form-group">
+
+									<label class="col-md-2 control-label" for="pcode">产品代码</label>
+									
+									
+									
+									<div class="col-md-10">
+										<input type="text" class="form-control"
+											id="pcode" name="pcode" placeholder="产品代码" required="false" th:value="${model.pcode}">
+									</div>
+								</div>
+								<div class="form-group">
+
+									<label class="col-md-2 control-label" for="price">产品单价</label>
+									
+									
+									
+									<div class="col-md-10">
+										<input type="text" class="form-control"
+											id="price" name="price" placeholder="产品单价" required="false" th:value="${model.price}">
+									</div>
+								</div>
+								<div class="form-group">
+
+									<label class="col-md-2 control-label" for="descrption">产品描述</label>
+									
+									
+									
+									<div class="col-md-10">
+										<input type="text" class="form-control"
+											id="descrption" name="descrption" placeholder="产品描述" required="false" th:value="${model.descrption}">
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function() {
+			$(".dateInput").datetimepicker({
+				format : 'yyyy-mm-dd hh:ii:ss'
+			});
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="/alphablue/header">
+</head>
+<style>
+a {
+	color: #757575;
+}
+
+.pay-form {
+	background-color: #fff;
+	color: #333;
+	margin: 110px auto 30px;
+	width: 1260px;
+	min-height: 460px;
+	padding: 50px;
+}
+
+.pay-form .title {
+	color: #757575;
+	font-size: 30px;
+	font-weight: 400;
+	line-height: 68px;
+	margin: 0;
+}
+
+.pay-form .title small {
+	font-size: 12px;
+	line-height: 1.5;
+	margin-left: 10px;
+}
+
+.pay-form .filter-list {
+	float: left;
+	font-size: 16px;
+	line-height: 1.25;
+	list-style-type: none;
+	margin: 0;
+	padding: 18px 0;
+}
+
+.clearfix::after {
+	clear: both;
+}
+
+.clearfix::before, .clearfix::after {
+	content: " ";
+	display: table;
+}
+
+.pay-form .filter-list {
+	float: left;
+	font-size: 16px;
+	line-height: 1.25;
+	list-style-type: none;
+	margin: 0;
+	padding: 18px 0;
+}
+
+.pay-form .search-form {
+	float: right;
+	height: 40px;
+	margin-top: 8px;
+	position: relative;
+	width: 262px;
+}
+
+.pay-form .search-text {
+	border: 1px solid #e0e0e0;
+	color: #757575;
+	font-size: 12px;
+	height: 40px;
+	line-height: 40px;
+	outline: 0 none;
+	padding: 0 15px;
+	position: absolute;
+	right: 41px;
+	top: 0;
+	transition: all 0.2s ease 0s;
+	width: 189px;
+	z-index: 1;
+}
+
+input[type="search"] {
+	box-sizing: content-box;
+}
+
+.pay-form .search-btn {
+	background: url(images/search-btn.png) #fff no-repeat scroll center;
+	border: 1px solid #e0e0e0;
+	color: #616161;
+	font-size: 24px;
+	height: 42px;
+	line-height: 24px;
+	outline: 0 none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: all 0.2s ease 0s;
+	width: 42px;
+	cursor: pointer;
+}
+
+.pay-form .filter-list {
+	float: left;
+	font-size: 16px;
+	line-height: 1.25;
+	list-style-type: none;
+	margin: 0;
+	padding: 18px 0;
+}
+
+.pay-form .filter-list li {
+	border-left: 1px solid #e0e0e0;
+	color: #757575;
+	float: left;
+	padding: 0 20px;
+}
+
+.pay-form .filter-list li.active {
+	color: #ff6700;
+}
+
+.pay-form .filter-list li.first {
+	border-left: 0 none;
+	padding-left: 0;
+}
+
+.order-detail {
+	border: 1px solid #ff6700;
+}
+
+.order-summary {
+	background: #fffaf7 none repeat scroll 0 0;
+	padding: 25px 30px 1px;
+}
+
+.order-summary .order-status, .order-summary .order-desc {
+	color: #ff6700;
+}
+
+.order-summary .order-desc {
+	font-size: 14px;
+	margin: 2px 0 0;
+}
+
+.filter-list li.active a {
+	color: #ff6700;
+}
+
+.order-detail-table {
+	width: 100%;
+}
+
+.order-detail-table th.col-main {
+	padding-right: 10px;
+}
+
+.order-detail-table th {
+	background: #fffaf7 none repeat scroll 0 0;
+	border-bottom: 1px solid #feccac;
+}
+
+.order-detail-table th {
+	border-bottom: 1px solid #e0e0e0;
+	color: #757575;
+	font-weight: 400;
+	height: 28px;
+	padding: 0 30px 24px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+.order-detail-table th p {
+	font-size: 14px;
+}
+
+.order-detail-table th .sep {
+	color: #e0e0e0;
+	margin: 0 0.25em;
+}
+
+.order-detail-table th.col-sub {
+	padding-left: 10px;
+	text-align: right;
+	width: 240px;
+}
+
+.order-detail-table th .num {
+	color: #333;
+	font-size: 28px;
+	font-weight: 500;
+	height: 18px;
+	line-height: 1;
+	margin-right: 5px;
+}
+
+.order-detail-table td {
+	padding: 0 30px;
+}
+
+.box-bd .goods-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 10px 0;
+}
+
+.box-bd .goods-list li {
+	color: #333;
+	height: 44px;
+	line-height: 22px;
+	margin: 10px 0;
+	padding: 18px 18px 18px 100px;
+	position: relative;
+}
+
+.box-bd .goods-list .figure-thumb {
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+.box-bd .goods-list .figure-thumb a {
+	display: block;
+}
+
+.box-bd .order-detail {
+	margin: 0 auto 20px;
+}
+
+.order-detail-table .order-actions {
+	padding-top: 20px;
+	text-align: right;
+	vertical-align: top;
+}
+
+.btn {
+	border: 1px solid #b0b0b0;
+	color: #b0b0b0;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	height: 38px;
+	line-height: 38px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 158px;
+}
+
+.order-detail-table .order-actions .btn {
+	display: block;
+	margin: 0 0 10px auto;
+}
+
+.btn-primary {
+	background: #ff6700 none repeat scroll 0 0;
+	border-color: #ff6700;
+	color: #fff;
+}
+
+.btn-small {
+	font-size: 12px;
+	height: 28px;
+	line-height: 28px;
+	width: 118px;
+}
+
+#list-3 .order-detail {
+	border: 1px solid #e0e0e0;
+}
+
+#list-3 .order-summary {
+	background-color: #fff;
+}
+
+#list-3 .order-detail-table th {
+	background-color: #fff;
+}
+
+#list-3 .order-summary .order-status, #list-3  .order-summary .order-desc
+	{
+	color: #b0b0b0;
+}
+</style>
+</head>
+<body class="">
+	<div class="bg">
+		<div class="dbf dbf_white">
+			<p class="logo">
+				<a href="index.html"> <img src="images/logo_blue.png"
+					height="65" class="logo_blue large"></a>
+			</p>
+			<!--导航-->
+			<div class="topRightDom">
+				<div th:include="alphablue/nav"></div>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="pay-form">
+			<h1 class="title">
+				我的订单<small>请谨防钓鱼链接或诈骗电</small>
+			</h1>
+			<div class="more clearfix">
+				<ul class="filter-list">
+					<li class="first active"><a href="#" onclick="nTabs(this,0);">全部有效订单</a></li>
+					<li class=""><a href="#" onclick="nTabs(this,1);">待支付</a></li>
+					<li class=""><a href="#" onclick="nTabs(this,2);">待收货</a></li>
+					<li class=""><a href="#" onclick="nTabs(this,3);">已关闭</a></li>
+				</ul>
+				<!-- <form method="get" action="#" class="search-form clearfix" id="">
+					<label class="hide" for="search">站内搜索</label> <input type="search"
+						placeholder="输入商品名称、商品编号、订单号" autocomplete="off" name="keywords"
+						class="search-text"> <input type="submit" value=""
+						class="search-btn iconfont">
+				</form> -->
+			</div>
+			<div class="box-bd">
+				<div id="list-1" class="list">
+					<div class="order-detail" th:each="model,stat:${list}" th:if="${model.ordertype=='0'}">
+						<div class="order-summary">
+							<div class="order-status" th:text="${idt.getOrderType(model.ordertype)}">等待付款</div>
+						</div>
+						<table class="order-detail-table">
+							<thead>
+								<tr>
+									<th class="col-main">
+										<p class="caption-info">
+											<span th:text="${model.createdate}"></span><span class="sep">|</span>
+											<span class="sep">|</span>订单号： <span th:text="${model.id}">1160909970000520</span><span
+												class="sep">|</span>在线支付
+										</p>
+									</th>
+									<th class="col-sub">
+										<p class="caption-price">
+											订单金额：<span class="num" th:text="${#numbers.formatDecimal(model.allprice,3,2)}">699.00</span>元
+										</p>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="order-items"><ul class="goods-list">
+											<li>
+												<div class="figure figure-thumb">
+													<a target="_blank" href="product_two.html"> <img
+														width="80" height="80" src="images/product2_buy.png"
+														th:src="@{'images/product'+${model.productId}+'_buy.png'}"
+														>
+													</a>
+												</div>
+												
+												<p class="name">
+													<a  target="_blank"
+													th:text="${idt.getProductById(model.productId).getDescrption()}"
+													>小米空气净化器2
+														白色</a>
+												</p>
+												<p class="price">
+												<span th:text="${#numbers.formatDecimal(idt.getProductById(model.productId).getPrice(),3,2)}"></span>
+												 × 
+												 <span th:text="${model.count}"></span>
+												 </p>
+												
+											</li>
+										</ul></td>
+									<td class="order-actions">
+									<a  th:href="@{/alphablue/pay?orderId={id}(id=${model.id})}"
+										href="pay.html" class="btn btn-small btn-primary">立即支付</a> 
+													<a  th:href="@{/alphablue/detail?orderId={id}(id=${model.id})}"
+										href="pay.html" class="btn btn-small btn-primary">订单详情</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div id="list-2" class="list">
+					<div class="order-detail" th:each="model,stat:${list}" th:if="${model.ordertype=='2'}">
+						<div class="order-summary">
+							<div class="order-status" th:text="${idt.getOrderType(model.ordertype)}">等待付款</div>
+						</div>
+						<table class="order-detail-table">
+							<thead>
+								<tr>
+									<th class="col-main">
+										<p class="caption-info">
+											<span th:text="${model.createdate}"></span><span class="sep">|</span>
+											<span class="sep">|</span>订单号： <span th:text="${model.id}">1160909970000520</span><span
+												class="sep">|</span>在线支付
+										</p>
+									</th>
+									<th class="col-sub">
+										<p class="caption-price">
+											订单金额：<span class="num" th:text="${#numbers.formatDecimal(model.allprice,3,2)}">699.00</span>元
+										</p>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="order-items"><ul class="goods-list">
+											<li>
+												<div class="figure figure-thumb">
+													<a target="_blank" href="product_two.html"> <img
+														width="80" height="80" src="images/product2_buy.png"
+														th:src="@{'images/product'+${model.productId}+'_buy.png'}"
+														>
+													</a>
+												</div>
+												
+												<p class="name">
+													<a  target="_blank"
+													th:text="${idt.getProductById(model.productId).getDescrption()}"
+													>小米空气净化器2
+														白色</a>
+												</p>
+												<p class="price">
+												<span th:text="${#numbers.formatDecimal(idt.getProductById(model.productId).getPrice(),3,2)}"></span>
+												 × 
+												 <span th:text="${model.count}"></span>
+												 </p>
+												
+											</li>
+										</ul></td>
+									<td class="order-actions">
+									<a  th:href="@{/alphablue/detail?orderId={id}(id=${model.id})}"
+										href="pay.html" class="btn btn-small btn-primary">订单详情</a> </td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div id="list-3" class="list">
+					<div class="order-detail" th:each="model,stat:${list}" th:if="${model.ordertype=='3' or model.ordertype=='4'}">
+						<div class="order-summary">
+							<div class="order-status" th:text="${idt.getOrderType(model.ordertype)}">等待付款</div>
+						</div>
+						<table class="order-detail-table">
+							<thead>
+								<tr>
+									<th class="col-main">
+										<p class="caption-info">
+											<span th:text="${model.createdate}"></span><span class="sep">|</span>
+											<span class="sep">|</span>订单号： <span th:text="${model.id}">1160909970000520</span><span
+												class="sep">|</span>在线支付
+										</p>
+									</th>
+									<th class="col-sub">
+										<p class="caption-price">
+											订单金额：<span class="num" th:text="${#numbers.formatDecimal(model.allprice,3,2)}">699.00</span>元
+										</p>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="order-items"><ul class="goods-list">
+											<li>
+												<div class="figure figure-thumb">
+													<a target="_blank" href="product_two.html"> <img
+														width="80" height="80" src="images/product2_buy.png"
+														th:src="@{'images/product'+${model.productId}+'_buy.png'}"
+														>
+													</a>
+												</div>
+												
+												<p class="name">
+													<a  target="_blank"
+													th:text="${idt.getProductById(model.productId).getDescrption()}"
+													>小米空气净化器2
+														白色</a>
+												</p>
+												<p class="price">
+												<span th:text="${#numbers.formatDecimal(idt.getProductById(model.productId).getPrice(),3,2)}"></span>
+												 × 
+												 <span th:text="${model.count}"></span>
+												 </p>
+												
+											</li>
+										</ul></td>
+									<td class="order-actions">
+									<a  th:href="@{/alphablue/pay?orderId={id}(id=${model.id})}"
+										href="pay.html" class="btn btn-small btn-primary">详情</a> </td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--底部-->
+
+	<div th:include="alphablue/footer"></div>
+	<script>
+		function nTabs(thisObj, Num) {
+			if ($(thisObj).parent().hasClass("active"))
+				return;
+			var tabObj = $(thisObj).closest("ul.filter-list");
+			var tabList = tabObj.children();
+			for (i = 0; i < tabList.length; i++) {
+				if (Num == 0) {
+					$('.box-bd .list').show();
+					$(thisObj).closest("ul.filter-list").children().not(
+							$(thisObj).parent()).removeClass("active");
+					$(thisObj).parent().addClass("active");
+					return;
+				} else if (i == Num) {
+					$(thisObj).parent().addClass("active");
+					$('.box-bd #list-' + Num).show();
+				} else {
+					$(tabList[i]).removeClass("active");
+					$('.box-bd #list-' + i).hide();
+				}
+			}
+		}
+	</script>
+</body>
+</html>

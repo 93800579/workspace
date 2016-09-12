@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="/alphablue/header">
+</head>
+<style>
+a {
+	color: #333;
+}
+.order-items-table a:hover {
+	color: #ff6700;
+}
+.main {
+	margin-top: 130px;
+	height: 860px;
+}
+.pay {
+	width: 1280px;
+	margin: 0 auto;
+	border: 1px solid #999999;
+	background: #fff;
+}
+.pay .logo {
+	padding: 26px 40px;
+	color: #333333;
+	border-bottom: 1px solid #e0e0e0;
+}
+.logo h3 {
+	color: #757575;
+	font-size: 26px;
+	font-weight: 400;
+	line-height: 48px;
+	margin: 0;
+}
+.info {
+	background: #fff;
+	color: #333333;
+	padding: 20px 40px;
+	position: relative;
+}
+.info-number {
+	line-height: 26px;
+}
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.subtitle {
+	color: #333;
+	float: left;
+	font-size: 18px;
+	font-weight: 400;
+	padding: 14px 0 4px;
+}
+.actions {
+	float: right;
+	padding-top: 5px;
+}
+.actions .btn {
+	margin-left: 5px;
+}
+.btn {
+	margin-left: 5px;
+	border: 1px solid #b0b0b0;
+	color: #b0b0b0;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	height: 38px;
+	line-height: 38px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	transition: all 0.4s ease 0s;
+	width: 158px;
+}
+.btn-line-gray {
+	background: #fff none repeat scroll 0 0;
+	border-color: #b0b0b0;
+	color: #757575;
+}
+.btn-small {
+	font-size: 12px;
+	height: 28px;
+	line-height: 28px;
+	width: 118px;
+}
+.btn-primary {
+	background: #ff6700 none repeat scroll 0 0;
+	border-color: #ff6700;
+	color: #fff;
+}
+.order-detail{
+	margin-bottom:30px;
+}
+.order-summary {
+	margin-bottom: 30px;
+}
+.order-status {
+	font-size: 18px;
+	color: #ff6700;
+}
+.order-desc {
+	color: #ff6700;
+	font-size: 14px;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.order-items-table {
+	width: 100%;
+	margin: 0 auto;
+}
+.order-items-table .col {
+	border-bottom: 1px solid #e0e0e0;
+	color: #333;
+	height: 90px;
+	text-align: left;
+}
+.order-item-pay {
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom:30px;
+	font-size:14px;
+	color:#757575;
+	position:relative;
+	padding-bottom:10px;
+}
+.order-item-pay h3 {
+  color: #333;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 15px;
+}
+.order-detail-total .total-table {
+  color: #757575;
+  margin: 0 0 0 auto;
+  width: 255px;
+}
+.order-detail-total .total-table th {
+  font-weight: 400;
+  text-align: right;
+  width: 100px;
+}
+.order-detail-total .total-table th, .order-detail-total .total-table td {
+  padding: 5px 0;
+  text-align: left;
+}
+.order-detail-total .total-table th.total, .order-detail-total .total-table td.total {
+  padding-top: 25px;
+  vertical-align: text-bottom;
+}
+.order-detail-total .total-table td.total .num {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+}
+.order-detail-total .total-table td {
+  color: #ff6700;
+  text-align: right;
+}
+.order-detail-total .num {
+  margin-right: 3px;
+}
+.order-item-pay .actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding:0;
+}
+</style>
+</head>
+<body class="">
+<div class="bg">
+  <div class="dbf dbf_white">
+    <p class="logo"> <a href="index.html"> <img src="images/logo_blue.png"  height="65" class="logo_blue large"></a></p>
+    <!--导航-->
+    <div class="topRightDom">
+      <div th:include="alphablue/nav">
+      </div>
+      <!--<div class="rm"> <a class="zc" href="https://www.zipeiyi.com/regist/regist.html">注册</a> <a class="dr" href="https://www.zipeiyi.com/login/login.html">登录</a> </div>--> 
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="pay">
+    <div class="logo">
+      <h3>订单详情</h3>
+      <div class="more clearfix">
+        <h2 class="subtitle">订单编号：<span th:text="${order.id}">xxxxxxx</span> </h2>
+        <div class="actions"> 
+        <a href="javascript:;" class="btn btn-small btn-line-gray" onclick="" th:if="${order.ordertype=='0'}">取消订单</a><a target="_blank" href="pay.html" class="btn btn-small btn-primary">立即支付</a> </div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="order-detail">
+        <div class="order-summary">
+          <div class="order-status" th:if="${order.ordertype=='0'}"> 等待付款 </div>
+          <!--<div class="order-desc">1小时59分后订单将被关闭</div>--> 
+        </div>
+        <table class="order-items-table">
+          <tbody>
+            <tr>
+              <td width="100" class="col"><a href="product_two.html" target="_blank" onclick=""> <img width="80" height="80" src="images/product2_buy.png"> </a></td>
+              <td width="300" class="col"><a href="product_two.html" target="_blank" onclick="">无耗材净化器</a></td>
+              <td class="col"><p class="price">699元 × 1</p></td>
+              <td class="col"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="order-item-pay">
+        <h3>收货信息</h3>
+        <div class="info-number">收货人：<span th:text="${order.receiver}"></span></div>
+        <div class="info-number">联系电话：<span th:text="${order.telphone}">xxxxxxx</span></div>
+        <div class="info-number">收货地址：
+          <p th:text="${order.address}"></p>
+        </div>
+        <!--<div class="actions">
+          <a href="#" class="btn btn-small btn-line-gray" onclick="">修改</a>
+        </div>-->
+      </div>
+      <div class="order-detail-total">
+        <table class="total-table">
+          <tbody>
+            <tr>
+              <th>商品总价：</th>
+              <td><span class="num">699</span>元</td>
+            </tr>
+            <tr>
+              <th>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：</th>
+              <td><span class="num">0</span>元</td>
+            </tr>
+            <tr>
+              <th>订单金额：</th>
+              <td><span class="num">699</span>元</td>
+            </tr>
+            <tr>
+              <th class="total">实付金额：</th>
+              <td class="total"><span class="num">699</span>元</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!--底部-->
+<div th:include="alphablue/footer"></div>
+</body>
+</html>

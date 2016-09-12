@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="/alphablue/header">
+</head>
+<style>
+.downBg {
+	background: url(images/user.jpg) center 0 no-repeat;
+}
+.main {
+	background: none;
+	min-height: 570px;
+	width: 1280px;
+	margin: 100px auto 30px;
+	position: relative;
+	padding-top: 200px;
+}
+.user-info {
+	margin: 20px auto 0;
+	font-size: 18px;
+	color: #7f7f7f;
+	overflow: hidden;
+	position: absolute;
+	right: 36px;
+	top: 70px;
+}
+.user-info .user-name {
+	font-size: 36px;
+	float: left;
+	width: 160px;
+	padding-top: 40px;
+	margin-right: 10px;
+	text-align: right;
+}
+.user-info .user-img {
+	width: 150px;
+	height: 150px;
+	float: left;
+	background: url(images/user_01.png) 0 0 no-repeat;
+}
+.user-bd {
+	background: #fff none repeat scroll 0 0;
+	border: 1px solid #e6e6e6;
+	border-radius: 10px;
+	min-height: 500px;
+	padding: 34px 34px 0;
+}
+.user-bd .user-form:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.user-bd .main_l {
+	float: left;
+	width: 300px;
+}
+.user-img-box {
+	padding: 140px 20px 0;
+	text-align: center;
+}
+.user-bd .user-img {
+	background: url(images/user_01.png) center 0 no-repeat;
+	height: 150px;
+	padding: 4px;
+	position: relative;
+	width: 150px;
+	margin: 0 auto;
+}
+.user-bd .main_r {
+  float: left;
+  width: 800px;
+  color:#666;
+  font-size:14px;
+}
+.user-bd .fdata {
+  border-bottom: 2px solid #e6e6e6;
+  line-height: 40px;
+  overflow: hidden;
+  padding-left: 20px;
+}
+.iconpencil {
+  background: url(images/user_home_exit.png) no-repeat 0 0;
+  display: inline-block;
+  height: 26px;
+  margin-right: 5px;
+  margin-top: -5px;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 26px;
+}
+</style>
+<body class="downBg">
+<div class="bg">
+  <div class="dbf dbf_white">
+    <p class="logo"> <a href="index.html"> <img src="images/logo_blue.png"  height="65" class="logo_blue large"></a></p>
+    <!--导航-->
+			<div class="topRightDom">
+				<div th:include="alphablue/nav"></div>
+				<!--<div class="rm"> <a class="zc" href="https://www.zipeiyi.com/regist/regist.html">注册</a> <a class="dr" href="https://www.zipeiyi.com/login/login.html">登录</a> </div>-->
+			</div>
+  </div>
+</div>
+<div class="main">
+  <div class="user-info">
+    <div class="user-name" th:text="${session.currentUser.nickName}">xxxx</div>
+    <div class="user-img"></div>
+  </div>
+  <div class="user-bd">
+    <div class="user-form">
+      <div class="main_l">
+        <div class="user-img-box">
+          <div class="user-img"></div>
+          <div style="padding-top:5px;"> <!-- <a title="设置头像" href="" style="color:#005FC7;">设置头像</a> --> </div>
+        </div>
+      </div>
+      <div class="main_r">
+        <div style="padding-top:65px;">
+          <div class="fdata"><!--  <a id="editInfo" title="编辑" href="#" style="color:#005FC7; float:right;"> <i class="iconpencil"></i>编辑</a>-->
+            <h3 style="color:#005FC7;">基础资料</h3>
+          </div>
+          <div class="fdata name">
+            <p><span>用户名：</span><span th:text="${session.currentUser.name}"> boss </span></p>
+          </div>
+          <div class="fdata email">
+            <p><span>电子邮箱：</span><span th:text="${session.currentUser.email}"> 123@sfds.com</span></p>
+          </div>
+          <div class="fdata regdate">
+            <p><span>注册时间：</span><span th:text="${session.currentUser.registeredDate}"> 1988-01-02</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--底部-->
+<div class="base page  scale">
+  <div class="footler">
+    <div class="contact">
+      <dl class="left">
+        <dt class="title">联系我们</dt>
+        <dd class="footerText_blur"> <img src="images/footerIcon1.png"  class="footer_icon1">010-58025399 </dd>
+        <dd class="textDiv"> 传真：010-58025480<br>
+          邮编：100176<br>
+          地址：北京经济技术开发区锦绣街航天科技园A区B座5楼<br>
+          Copyright ©2016-2019 北京航天爱锐科技有限责任公司 all rights reserved </dd>
+      </dl>
+      <dl class="right">
+        <dt class="title">友情链接</dt>
+        <dd class="textDiv"> <img src="images/footerIcon2.png"  class="footer_icon2"><a target="_blank" href="http://www.spacechina.com">中国航天科技集团官网</a> <br />
+          <img src="images/footerIcon2.png"  class="footer_icon2"><a target="_blank" href="http://http://www.calt.com">中国运载火箭技术研究院</a> </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<script src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/common.js"></script> 
+<script src="js/main.js"></script>
+</body>
+</html>

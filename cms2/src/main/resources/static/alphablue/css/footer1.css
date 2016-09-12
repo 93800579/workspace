@@ -1,0 +1,18 @@
+/* CSS Document */
+
+/*底部*/
+.base{background-color:#fff;width:100%; min-height:300px; -webkit-box-shadow:inset 0px 3px 3px rgba(0,0,0,0.2);  -moz-box-shadow:inset 0px 3px 3px rgba(0,0,0,0.2); box-shadow:inset 0px 3px 3px rgba(0,0,0,0.2); }
+.base .footler{max-width:1100px;margin: 0 auto; height: ; padding:40px 10px 0 10px;}
+
+.base .footler .title{font-size:18px; margin-bottom:15px; background-color:#0366ce; color:#fff; width:100px; height:34px; line-height:34px; text-align:center}
+.base .footler .contact{color:#505050; font-size:14px;}
+.base .footler .contact .left{display:inline-block; margin-right: 80px; margin-left:100px;float:left;}
+.base .footler .contact .right{border-left: 1px solid #ccc;display: inline-block; padding-left: 30px;  min-height:140px}
+.base .footler .contact a{ color:#0366ce; font-size:14px; text-decoration:underline;}
+
+
+.base .footler .footer_icon1 {vertical-align:middle; margin-right:15px;}
+.base .footler .footer_icon2 {vertical-align:middle; margin-right:10px;}
+.base .footler .footerText_blur { font-size:18px; line-height:48px; color:#0366ce; text-decoration:underline; margin-bottom:10px}
+.base .footler dd{line-height:22px}
+.base .footler .textDiv{letter-spacing: 2px;}

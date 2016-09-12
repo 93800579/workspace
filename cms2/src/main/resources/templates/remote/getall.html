@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+</head>
+<body>
+	<div class="container">
+		<div class="row" th:include="toolbar"></div>
+
+		<div class="jumbotron">
+			<!-- //用 th:remove 移除除了第一个外的静态数据，用第一个tr标签进行循环迭代显示 -->
+			<table class="table table-striped table-hover ">
+				<tbody>
+					<!-- 　//将后台传出的 productList 的集合进行迭代，用product参数接收，通过product访问属性值 -->
+					<tr th:each="product:${list}" th:css="info">
+						<!-- //用count进行统计，有顺序的显示 -->
+						<td th:text="${productStat.count}">1</td>
+						<td><a th:href="@{/remote/view/{id}(id=${productStat.count})}"
+							th:text="${product.shortName}"></a></td>
+						<td th:text="${product.userName}">2014-12-01</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-4">
+				<div th:include="footer :: copy">...</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

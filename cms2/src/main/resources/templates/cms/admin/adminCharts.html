@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="header">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row" th:include="toolbar"></div>
+		<div class="row">
+			<div th:include="left(params1='sys')"></div>
+			<div class="col-md-10">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">内存情况</h3>
+							</div>
+							<div class="panel-body">
+								<canvas id="myChart1" width="400" height="400"></canvas>
+							</div>
+						</div>
+
+
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">磁盘情况</h3>
+							</div>
+							<div class="panel-body">
+								<canvas id="myChart2"  width="400" height="400"></canvas>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">环境信息</h3>
+							</div>
+							<div class="panel-body">
+								<code id="codeE"></code>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+var ctx = document.getElementById("myChart1");
+$(function(){
+	var url =[[@{/metrics}]];
+	$.get(url,function(data){
+		if(data){
+			initPie((data.mem-data['mem.free']),data.mem,ctx);	
+		}
+		
+	});
+	var urlEnv = [[@{/env}]];
+	$.get(urlEnv,function(data){
+		if(data){
+			$("#codeE").text(JSON.stringify(data));
+			}
+		
+	});
+	var urlStatus = [[@{/health}]];
+	$.get(urlStatus,function(data){
+		if(data){
+			var ctx2 = document.getElementById("myChart2");
+			initPie(data.diskSpace.free,data.diskSpace.total-data.diskSpace.free,ctx2);
+		}
+	});
+});	
+function initPie(free,rest,ctx){
+	var dd= new Array(2);
+	dd[0] = free;
+	dd[1] = rest;
+	var data = {
+		    labels: [
+		        "剩余",
+		        "已使用"
+		    ],
+		    datasets: [
+		        {
+		            data: dd,
+		            backgroundColor: [
+						"#00CC00",
+		                "#FF6384"
+		            ],
+		            hoverBackgroundColor: [
+						"#00CC00",
+		                "#FF6384"
+		                
+		            ]
+		        }]
+		};
+	var myPieChart = new Chart(ctx,{
+	    type: 'pie',
+	    data: data
+	});
+}
+/*]]>*/
+	</script>
+</body>
+</html>
